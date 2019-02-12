@@ -1,0 +1,12 @@
+.testBorder{
+    border: 1px solid black;
+}
+
+.testMargin{
+    /* Top Right Bottom Left */ 
+    margin: 2px 5px 2px 5px;
+}
+
+.testPadding{
+    padding: 5px;
+}

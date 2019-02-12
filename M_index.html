@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Maquette de la page index</title>
+        <title>Maquette index</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS & JS -->
-        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">-->
         <link href="css/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <!-- Personnal CSS -->
-        <link href="css/border.css" rel="stylesheet" type="text/css"/>
+        <link href="css/test.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -21,73 +18,80 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profil</a>
                     </li>
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-default btn-lg">
-  <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> Star
-</button>
-                    </li>
                 </ul>
-                <span class="navbar-text">
-                    Bonjour Francis Jamu
-                </span>
+                <span class="navbar-text testMargin"><a href="#" class="btn btn-outline-primary">Sign Up</a></span>
+                <span class="navbar-text testMargin"><a href="#" class="btn btn-outline-primary">Login</a></span>
+                <span class="navbar-text testMargin"><a href="#" class="btn btn-outline-danger">Logout</a></span>
+                <span class="navbar-text">Bonjour Francis Jamu</span>
             </div>
         </nav>
-        <!--<nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="M_index.html">Direct Prod</a>
-                </div>
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="M_index.html">Home</a></li>
-                    <li><a href="#">Profil</a></li>
-                    <li><a class="navbar-brand">test</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                </ul>
-            </div>
-        </nav>-->
+
         <div class="container">
 
-            <div class="media">
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-9">
+                        <label for="inputState"><b>Moyen de tri</b></label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Date (récente)</option>
+                            <option>Date (vieille)</option>
+                            <option>Ville</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="addAd"><b>Ajouter une annonce</b></label>
+                        <input type="button" class="btn btn-success form-control" id="addAd" value="+">
+                    </div>
+                </div>
+            </form>
+
+            <div class="media testBorder testMargin testPadding">
                 <div class="media-left ">
                     <img src="https://www.w3schools.com/bootstrap/img_avatar1.png" class="media-object" style="width:80px">
+                    <h6>Romain Peretti</h6>
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading">Media Top</h4>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </p>
+                    <div class="d-flex flex-row-reverse">
+                        <button type="button" class="btn btn-info ">Détails</button>
+                    </div>
                 </div>
             </div>
-
-            <div class="media">
+            <!-- Media global -->
+            <div class="media testBorder testMargin testPadding">
+                <!-- Image profil -->
                 <div class="media-left">
                     <img src="https://www.w3schools.com/bootstrap/img_avatar1.png" class="media-object" style="width:80px">
+                    <h6>Francis Jamu</h6>
                 </div>
+                <!-- Contenu -->
                 <div class="media-body">
                     <h4 class="media-heading">Media Top</h4>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     </p>
                     <img src="https://fr.cdn.v5.futura-sciences.com/buildsv6/images/mediumoriginal/6/5/2/652a7adb1b_98148_01-intro-773.jpg" class="media-object" style="width:300px">
+
+                    <!-- Boutons -->
                     <div class="d-flex flex-row-reverse">
-                        <button type="button" class="btn btn-info ">Détails</button>
-                        <button type="button" class="btn btn-danger ">Supprimer</button>
-                        <button type="button" class="btn btn-default ">Modifier</button>
+                        <button type="button" class="btn btn-info testMargin">Détails</button>
+                        <button type="button" class="btn btn-danger testMargin">Supprimer</button>
+                        <button type="button" class="btn btn-dark testMargin">Modifier</button>
                     </div>
+
                 </div>
             </div>
         </div>
         <footer>
-
         </footer>
     </body>
 </html>
