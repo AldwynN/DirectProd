@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Bootstrap CSS & JS -->
         <link href="css/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="css/bootstrap-4.2.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Personnal CSS -->
         <link href="css/test.css" rel="stylesheet" type="text/css"/>
     </head>
@@ -16,22 +18,28 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link" href="#">Home</a>
+                    <a class="nav-item nav-link" href="#">Profil</a>                    
+                </div>
+                <!--<ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profil</a>
                     </li>
-                </ul>
-                <span class="navbar-text testMargin"><a href="#" class="btn btn-outline-primary ">Sign Up</a></span>
-                <span class="navbar-text testMargin"><a href="#" class="btn btn-outline-primary">Login</a></span>
-                <span class="navbar-text testMargin"><a href="#" class="btn btn-outline-danger">Logout</a></span>
-                <span class="navbar-text">Bonjour Francis Jamu</span>
+                </ul>-->
+                <div class="">
+                    <span class="navbar-text testMarginHorizontal"><a href="#" class="btn btn-outline-primary ">Sign Up</a></span>
+                    <span class="navbar-text testMarginHorizontal"><a href="#" class="btn btn-outline-primary">Login</a></span>
+                    <span class="navbar-text testMarginHorizontal"><a href="#" class="btn btn-outline-danger">Logout</a></span>
+                    <span class="navbar-text">Bonjour Francis Jamu</span>
+                </div>
             </div>
         </nav>
         <div class="container">
-            <form class="testMargin testBorder testPadding">
+            <form class="testMarginVertical testBorder testPadding">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Email</label>
@@ -67,7 +75,7 @@
                     </div>
                 </div>
                 <div class="text-right">
-                <button type="submit" class="btn btn-success">Sign in</button>
+                    <button type="submit" class="btn btn-success">Sign in</button>
                 </div>
             </form>
         </div>

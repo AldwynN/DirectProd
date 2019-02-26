@@ -17,10 +17,32 @@
 }
 
 .media{
-    box-shadow: 2px 2px 18px 1px rgba(0,0,0,1);
+    border: 1px solid;
+    border-color: #e8e5e6;
+    border-radius: 2%;
+    
 }
+.media:hover{
+    box-shadow: 2px 2px 18px 1px rgba(239, 241, 162, 1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+.media:not(:hover){
+        transition: box-shadow 1s ease-out;
 
+}
 .testWidth{
     width: 10%;   
     float: right;
+}
+body{
+    background-color: #232629;
+}
+.title{
+    color: #f5f3b3;
+}
+.corps{
+    color: #ececec;
+}
+.NameUser{
+    color: #f1d492;
 }
