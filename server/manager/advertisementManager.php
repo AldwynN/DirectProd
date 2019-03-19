@@ -1,4 +1,5 @@
 <?php
+require_once '../inc/inc.all.php';
 
 /* Titre : Manager de la classe "Advertisement"
  * Date : Mardi, 14.03.2019

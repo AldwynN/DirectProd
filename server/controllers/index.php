@@ -1,8 +1,6 @@
 <?php
-
-require_once 'manager/advertisementManager.php';
-require_once 'manager/userManager.php';
+require_once '../inc/inc.all.php';
 
 $ads = AdvertisementManager::GetAdvertisements();
 
-include '../views/showAdTable.php';
+include_once '../views/showAdTable.php';

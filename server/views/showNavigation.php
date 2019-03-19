@@ -5,7 +5,7 @@ qui apparaissent ou disparaissent suivant si on est connecté ou pas.
 -->
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="M_index.html">Direct Prod</a>
+            <a class="navbar-brand" href="#">Direct Prod</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -15,7 +15,7 @@ qui apparaissent ou disparaissent suivant si on est connecté ou pas.
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profil</a>
+                        <a class="nav-link" href="../controllers/profil.php?idUser=">Profil</a>
                     </li>
                 </ul>
                 <?php if (empty($_SESSION['connected'])): ?>
