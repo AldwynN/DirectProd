@@ -30,10 +30,10 @@
                     <img src="https://c.pxhere.com/photos/88/3a/goat_animal_mammals_farm_animal_world_wildlife_photography_black_and_white_tooth-717480.jpg!d" class="media-object" style="width:300px">
                     <!-- Boutons -->
                     <div class="d-flex flex-row-reverse">
-                        <button type="button" class="btn btn-outline-info testMarginHorizontal">Détails</button>
-                        <?php if ($ad->idUser == $user[0]->idUser): ?>
-                            <button type="button" class="btn btn-outline-danger testMarginHorizontal">Supprimer</button>
-                            <button type="button" class="btn btn-outline-warning testMarginHorizontal">Modifier</button>
+                        <a href="../controllers/adDetails.php?idAd=<?= $ad->idAdvertisement ?>"><button type="button" class="btn btn-outline-info testMarginHorizontal">Détails</button></a>
+                        <?php if ($ad->idUser == $_SESSION['idUser']): ?>
+                        <a href="../controllers/deleteAd.php?idAd=<?= $ad->idAdvertisement ?>"><button type="button" class="btn btn-outline-danger testMarginHorizontal">Supprimer</button></a>
+                        <a href="../controllers/editAd.php?idAd=<?= $ad->idAdvertisement ?>"><button type="button" class="btn btn-outline-warning testMarginHorizontal">Modifier</button></a>
                         <?php endif; ?>
                     </div>
                 </div>

@@ -1,4 +1,9 @@
 <?php
+session_start();
+$_SESSION['idUser'] = 1;
+$_SESSION['name'] = "Romain Peretti";
+$_SESSION['connected'] = true;
+
 require_once '../database/database.php';
 
 require_once '../class/Advertisement.php';

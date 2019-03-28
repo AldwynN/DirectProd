@@ -16,10 +16,10 @@
         <div class='container'>
             <div class="d-flex justify-content-center testMarginVertical">
                 <div class="card" style="width: 65%;">
-                    <?php if (/* $_SESSION['idUser'] */1 == $userDetails[0]->idUser): ?>
+                    <?php if ($_SESSION['idUser'] == $userDetails[0]->idUser): ?>
                         <div class="d-flex justify-content-end">
-                            <a href="#" class="btn btn-info testWidth">M</a>
-                            <a href="#" class="btn btn-danger testWidth">S</a>
+                            <a href="../controllers/editProfil.php?idUser=<?= $_SESSION['idUser'] ?>" class="btn btn-info testWidth">M</a>
+                            <a href="../controllers/deleteProfil.php?idUser=<?= $_SESSION['idUser'] ?>" class="btn btn-danger testWidth">S</a>
                         </div>
                     <?php endif; ?>
                     <div class="d-flex justify-content-center">
