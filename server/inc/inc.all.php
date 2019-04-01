@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['idUser'] = 1;
 $_SESSION['name'] = "Romain Peretti";
-$_SESSION['connected'] = true;
+$_SESSION['connected'] = false;
 
 require_once '../database/database.php';
 

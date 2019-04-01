@@ -46,3 +46,8 @@ body{
 .NameUser{
     color: #f1d492;
 }
+
+.loginForm{
+    border: 1px solid #e8e5e6;
+    border-radius: 2%;
+}
