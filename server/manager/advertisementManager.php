@@ -1,4 +1,5 @@
 <?php
+
 require_once '../inc/inc.all.php';
 
 /* Titre : Manager de la classe "Advertisement"
@@ -10,9 +11,24 @@ require_once '../inc/inc.all.php';
 
 class AdvertisementManager {
 
-    public static function GetAdvertisements() {
+    public static function GetAdvertisements($triage = null) {
+        $sqlRequest = "SELECT * FROM advertisements";
+        switch ($triage) {
+            case DESC:
+                $sqlRequest .= " ORDER BY date DESC";
+                break;
+            case ASC:
+                $sqlRequest .= " ORDER BY date ASC";
+                break;
+            case CITY: 
+                $sqlRequest .= " ORDER BY city ASC";
+                break;
+            default :
+                $sqlRequest .= " ORDER BY date DESC";
+                break;
+        }
         try {
-            $req = Database::prepare("SELECT * FROM direct_prod.advertisements ORDER BY date DESC");
+            $req = Database::prepare($sqlRequest);
             $req->execute();
             $result = $req->fetchAll(PDO::FETCH_CLASS, 'Advertisement');
             return $result;
@@ -64,7 +80,7 @@ class AdvertisementManager {
     }
 
     public static function UpdateAdvertisement($idAdvertisement, $title, $description, $organic, $valid, $date) {
-        $sqlCreateAd = "UPDATE direct_prod.advertisements" 
+        $sqlCreateAd = "UPDATE direct_prod.advertisements"
                 . " SET title = :title, description = :description, organic = :organic, valid = :valid, date = :date, idUser = :idUser WHERE idAdvertisement = :idAd)";
         try {
             $req = Database::prepare($sqlCreateAd);

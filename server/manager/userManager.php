@@ -1,4 +1,5 @@
 <?php
+
 require_once '../inc/inc.all.php';
 
 /* Titre : Manager de la classe "User"
@@ -24,15 +25,14 @@ class UserManager {
 
     public static function CreateUser($password, $email, $name, $city, $canton, $postCode, $streetAndNumber, $description) {
         $sqlInsertUser = "INSERT INTO direct_prod.users (`password`, `email`, `name`, `city`, `canton`, `postCode`, `streetAndNumber`, `admin`, `description`, `salt`)"
-                . "VALUES (:password,:email, :name, :city, :canton, :postCode, streetAndNumber, :admin, :description, :salt);";
+                . "VALUES (:password, :email, :name, :city, :canton, :postCode, :streetAndNumber, :admin, :description, :salt);";
         $salt = uniqid(mt_rand(), true);
         $encryptPassword = sha1($password . $salt);
+        $admin = false;
 
         try {
             $req = Database::prepare($sqlInsertUser);
-            if (UserManager::UserExist($email)) {
-                return false;
-            } else {
+            if (!UserManager::UserExist($email)) {
                 $req->bindParam(":password", $encryptPassword, PDO::PARAM_STR);
                 $req->bindParam(":email", $email, PDO::PARAM_STR);
                 $req->bindParam(":name", $name, PDO::PARAM_STR);
@@ -40,11 +40,13 @@ class UserManager {
                 $req->bindParam(":canton", $canton, PDO::PARAM_STR);
                 $req->bindParam(":postCode", $postCode, PDO::PARAM_STR);
                 $req->bindParam(":streetAndNumber", $streetAndNumber, PDO::PARAM_STR);
-                $req->bindParam(":admin", false, PDO::PARAM_BOOL);
+                $req->bindParam(":admin", $admin);
                 $req->bindParam(":description", $description, PDO::PARAM_STR);
                 $req->bindParam(":salt", $salt, PDO::PARAM_STR);
                 $req->execute();
                 return true;
+            } else {
+                return false;
             }
         } catch (Exception $e) {
             return false;
@@ -105,7 +107,7 @@ class UserManager {
             $req->bindParam(":email", $email, PDO::PARAM_STR);
             $req->execute();
             $result = $req->fetchAll(PDO::FETCH_ASSOC);
-            if (sha1($password + $result["salt"]) == $result["password"]) {
+            if (sha1($password . $result[0]["salt"]) == $result[0]["password"]) {
                 return true;
             }
         } catch (Exception $e) {
@@ -119,10 +121,15 @@ class UserManager {
             $req->bindParam(":email", $email, PDO::PARAM_STR);
             $req->execute();
             $result = $req->fetchAll(PDO::FETCH_CLASS, 'User');
-            return (count($result) > 0 ? true : false);
+            if (count($result) > 0) {
+                return true;
+            }
+            else {
+                return false;
+            }       
+            //return (count($result) > 0 ? true : false);
         } catch (Exception $e) {
             return false;
         }
     }
-
 }

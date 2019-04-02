@@ -1,10 +1,15 @@
 <?php
 session_start();
+
+/*
 $_SESSION['idUser'] = 1;
 $_SESSION['name'] = "Romain Peretti";
 $_SESSION['connected'] = false;
+*/
 
 require_once '../database/database.php';
+
+require_once 'constante.php';
 
 require_once '../class/Advertisement.php';
 require_once '../class/User.php';
