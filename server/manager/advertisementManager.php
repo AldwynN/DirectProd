@@ -37,6 +37,17 @@ class AdvertisementManager {
         }
     }
 
+    public static function GetAdvertisementsUnvalidated() {        
+        try {
+            $req = Database::prepare("SELECT * FROM advertisements WHERE valid = 0 ORDER BY date ASC");
+            $req->execute();
+            $result = $req->fetchAll(PDO::FETCH_CLASS, 'Advertisement');
+            return $result;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
     public static function GetAdvertisementById($idAdvertisement) {
         try {
             $req = Database::prepare("SELECT * FROM direct_prod.advertisements WHERE idAdvertisement = :idAd");
@@ -100,6 +111,17 @@ class AdvertisementManager {
     public static function DeleteAdvertisementById($idAdvertisement) {
         try {
             $req = Database::prepare("DELETE FROM direct_prod.advertisements WHERE idAdvertisement = :idAd");
+            $req->bindParam(":idAd", $idAdvertisement, PDO::PARAM_INT);
+            $req->execute();
+            return true;
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+    public static function UpdateValidatedAdvertisement($idAdvertisement) {
+        try {
+            $req = Database::prepare('UPDATE direct_prod.advertisements SET valid = 1 WHERE idAdvertisement = :idAd');
             $req->bindParam(":idAd", $idAdvertisement, PDO::PARAM_INT);
             $req->execute();
             return true;

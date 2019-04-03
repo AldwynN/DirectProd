@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
+
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- Bootstrap CSS & JS -->
-        <link href="../../css/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="../../css/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="../../css/bootstrap-4.2.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
         <!-- Personnal CSS -->
-        <link href="../../css/test.css" rel="stylesheet" type="text/css"/>
+        <link href="../../css/test.css" rel="stylesheet" type="text/css" />
         <title>Annonces</title>
     </head>
     <body>
-        <?php include 'showNavigation.php'; ?>
-        <div class="container" style="width: 85%;">
+        <div class="container col-md-12 col-sm-12" >
+            <div class="row">
+                <div class="col-md-12 pl-0 pr-0 col-sm-12">
+                    <?php include 'showNavigation.php'; ?>
+                </div>
+            </div>
+
             <form method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-9">
@@ -27,7 +33,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="addAd"><b>Ajouter une annonce</b></label>
-                        <?php if (isset($_SESSION["connected"])): ?>
+                        <?php if (isset($_SESSION["connected"])) : ?>
                             <a href="../controllers/createAd.php"><input type="button" class="btn btn-outline-success form-control" id="addAd" value="+"></a>
                         <?php else : ?>
                             <input type="button" class="btn btn-outline-success form-control disabled" id="addAd" value="+">
@@ -37,25 +43,24 @@
             </form>
             <!-- Media global -->
             <?php
-            foreach ($ads as $ad):
+            foreach ($ads as $ad) :
                 $user = UserManager::GetUserDetailsById($ad->idUser);
                 ?>
-
-                <div class="media testMarginHorizontal testMarginVertical testPadding">
+                <div class="row media border rounded col-md-12 col-sm-12 ml-0">
                     <!-- Image profil -->
-                    <div class="media-left">
-                        <img src="https://www.w3schools.com/bootstrap/img_avatar1.png" class="media-object img-fluid" style="width:80px">
+                    <div class="media-left col-md-1 col-sm-1">
+                        <img src="https://www.w3schools.com/bootstrap/img_avatar1.png" class="media-object img-fluid">
                         <h6 class="NameUser"><a href="../controllers/profil.php?idUser=<?= $user[0]->idUser ?>"><?= $user[0]->name ?></a></h6>
                     </div>
                     <!-- Contenu -->
-                    <div class="media-body">
-                        <h4 class="media-heading title">Media Top</h4>
-                        <p class="corps"><?= $ad->description ?></p>
-                        <img src="https://c.pxhere.com/photos/88/3a/goat_animal_mammals_farm_animal_world_wildlife_photography_black_and_white_tooth-717480.jpg!d" class="media-object" style="width:300px">
+                    <div class="media-body col-md-11 col-sm-11">
+                        <h4 class="title">Media Top</h4>
+                        <span class="corps"><?= $ad->description ?></span>
+                        <img src="https://c.pxhere.com/photos/88/3a/goat_animal_mammals_farm_animal_world_wildlife_photography_black_and_white_tooth-717480.jpg!d" class="media-object img-fluid">
                         <!-- Boutons -->
                         <div class="d-flex flex-row-reverse">
                             <a href="../controllers/adDetails.php?idAd=<?= $ad->idAdvertisement ?>"><button type="button" class="btn btn-outline-info testMarginHorizontal">Détails</button></a>
-                            <?php if ($ad->idUser == $_SESSION['idUser']): ?>
+                            <?php if ($ad->idUser == $_SESSION['idUser']) : ?>
                                 <a href="../controllers/deleteAd.php?idAd=<?= $ad->idAdvertisement ?>"><button type="button" class="btn btn-outline-danger testMarginHorizontal">Supprimer</button></a>
                                 <a href="../controllers/editAd.php?idAd=<?= $ad->idAdvertisement ?>"><button type="button" class="btn btn-outline-warning testMarginHorizontal">Modifier</button></a>
                             <?php endif; ?>
@@ -71,11 +76,14 @@
                 var selectedValue = $(this).val();
                 $.ajax({
                     type: "POST",
-                    data: {dropdownValue: selectedValue},
+                    data: {
+                        dropdownValue: selectedValue
+                    },
                     url: "../controllers/index.php",
                     dataType: "json",
-                });//End ajax
+                }); //End ajax
             });
         });
     </script>
+
 </html>

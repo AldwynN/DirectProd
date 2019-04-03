@@ -8,7 +8,8 @@ require_once '../inc/inc.all.php';
 if (isset($idUser)) {
     $userDetails = UserManager::GetUserDetailsById($idUser);
 } else {
-    $userDetails = UserManager::GetUserDetailsById(1);
+    //Error message : "idUser not found"
+    echo '<h1>Error message : "idUser not found"</h1>';
 }
 
 //$userDetails = UserManager::GetUserDetailsById($idUser);

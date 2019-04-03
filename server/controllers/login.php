@@ -11,6 +11,7 @@ if (isset($_POST['send'])) {
         $_SESSION['connected'] = true;
         $_SESSION['name'] = $userConnected[0]->name;
         $_SESSION['idUser'] = $userConnected[0]->idUser;
+        $_SESSION['admin'] = $userConnected[0]->admin;
         header('Location: index.php');
     }else{
         //Error message : "Wrong email or password"
