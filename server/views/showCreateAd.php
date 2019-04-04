@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,7 +19,7 @@
         <div class="d-flex justify-content-center testMarginVertical">
             <div class="media testPadding" style="width: 80%;">
                 <div class="media-body">
-                    <form method="POST" action="../controllers/login.php">
+                    <form method="POST" action="../controllers/createAd.php">
                         <div class="form-group">
                             <label for="title" class="corps">Titre</label>
                             <input type="text" class="form-control" name="title" id="title" placeholder="Couverts en argents datant du XVIIème siècle">
@@ -28,7 +29,7 @@
                             <textarea name="description" class="form-control" rows="5" cols="40" id="description"></textarea>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="organic" id="organic">
+                            <input type="checkbox" name="organic" id="organic" value="true">
                             <label for="organic" class="corps">Organic</label>
                         </div>
                         <button type="submit" class="btn btn-primary" name="send">Ajouter</button>
