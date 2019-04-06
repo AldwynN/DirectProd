@@ -14,16 +14,12 @@ qui apparaissent ou disparaissent suivant si on est connecté ou pas.
             <li class="nav-item active">
                 <a class="nav-link" href="../controllers/index.php">Home</a>
             </li>
-        <?php if (!isset($_SESSION)) : ?>
-            <li class="nav-item disabled">
-                <a class="nav-link">Profil</a>
-            </li>
-        <?php else : ?>
+        <?php if (isset($_SESSION['connected'])) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="../controllers/profil.php?idUser=<?= $_SESSION['idUser'] ?>">Profil</a>
             </li>
         <?php endif; ?>
-        <?php if (isset($_SESSION['admin'])) : ?>
+        <?php if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1) : ?>
             <li class="nav-item">
                 <a class="nav-link" href="../controllers/admin.php">Admin</a>
             </li>

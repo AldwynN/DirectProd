@@ -5,4 +5,4 @@ require_once '../inc/inc.all.php';
         
 $ads = AdvertisementManager::GetAdvertisements(/*intval($r)*/);
 
-include_once '../views/showAdTable.php';
+include_once '../views/showIndex.php';
