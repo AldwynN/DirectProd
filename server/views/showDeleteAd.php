@@ -10,7 +10,7 @@
     <script src="../../css/bootstrap-4.2.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- Personnal CSS -->
     <link href="../../css/test.css" rel="stylesheet" type="text/css" />
-    <title>Login</title>
+    <title>Suppression de l'annonce</title>
 </head>
 
 <body>
@@ -19,7 +19,7 @@
         <div class="d-flex justify-content-center testMarginVertical">
             <div class="media testPadding corps" style="width: 80%;">
                 <div class="media-body">
-                    <form method="POST" action="../controllers/login.php">
+                    <form method="POST" action="<?= $path= '../controllers/deleteAd.php?idAd=' . $ad[0]->idAdvertisement ?>">
                     <fieldset class="form-group">
                     <legend class="col-form-label">Voulez vous vraiment supprimer l'annonce de <?= $user[0]->name . " (" . $user[0]->email .") " ?> intitulée <?= $ad[0]->title ?></legend>    
                     <div class="form-check">
@@ -31,7 +31,7 @@
                             <label class="form-check-label" for="radioNo">No</label>
                         </div>
                     </fieldset>
-                        <button type="submit" class="btn btn-primary" name="send">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="send">Supprimer</button>
                     </form>
                 </div>
             </div>

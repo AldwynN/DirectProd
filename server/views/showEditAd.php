@@ -30,7 +30,7 @@
                             <input type="checkbox" name="organic" id="organic" value="true" <?= ($ad[0]->organic == true ? "checked" : "") ?>>
                             <label for="organic" class="corps">Organic</label>
                         </div>
-                        <button type="submit" class="btn btn-primary" name="send">Ajouter</button>
+                        <button type="submit" class="btn btn-primary" name="send">Modifier</button>
                     </form>
                 </div>
             </div>

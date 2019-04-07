@@ -41,8 +41,8 @@
                                 <td><?= $ad->title ?></td>
                                 <td><?= $ad->organic ?></td>
                                 <td><?= date_format(date_create($ad->date), 'd.m.Y') . " à " .  date_format(date_create($ad->date), 'H:i:s') ?></td>
-                                <td><button value="<?= $ad->idAdvertisement ?>" class="btn btn-primary" id="valid">Valider</button></td>
-                                <td><a href="../controllers/deleteAd.php?idAd=<?= $ad->idUser ?>" class="btn btn-danger">Supprimer</a></td>
+                                <td><a href="../controllers/sendEmailForValidAd?idUser=<?= $ad->idUser ?>&valid=1" class="btn btn-primary">Valider</a></td>
+                                <td><a href="../controllers/deleteAd.php?idAd=<?= $ad->idAdvertisement ?>" class="btn btn-danger">Supprimer</a></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

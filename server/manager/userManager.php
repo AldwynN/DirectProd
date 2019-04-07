@@ -53,16 +53,15 @@ class UserManager {
         }
     }
 
-    public static function UpdateUser($idUser, $password, $email, $name, $city, $canton, $postCode, $streetAndNumber, $description) {
+    public static function UpdateUser($idUser, $password, $name, $city, $canton, $postCode, $streetAndNumber, $description) {
         $sqlUpdateUser = "UPDATE direct_prod.users "
-                . "SET password = :password, email = :email, name = :name, city = :city, canton = :canton, postCode = :postCode, streetAndNumber = :streetAndNumber, description = :description, salt = :salt WHERE users.idUser = :idUser";
+                . "SET password = :password, name = :name, city = :city, canton = :canton, postCode = :postCode, streetAndNumber = :streetAndNumber, description = :description, salt = :salt WHERE users.idUser = :idUser";
         $salt = uniqid(mt_rand(), true);
         $encryptPassword = sha1($password . $salt);
         try {
             $req = Database::prepare($sqlUpdateUser);
             $req->bindParam(":idUser", $idUser, PDO::PARAM_INT);
             $req->bindParam(":password", $encryptPassword, PDO::PARAM_STR);
-            $req->bindParam(":email", $email, PDO::PARAM_STR);
             $req->bindParam(":name", $name, PDO::PARAM_STR);
             $req->bindParam(":city", $city, PDO::PARAM_STR);
             $req->bindParam(":canton", $canton, PDO::PARAM_STR);

@@ -65,7 +65,7 @@
                             <div class="form-group">
                                 <small><a href="../controllers/login.php">Déjà un compte ?</a></small>
                             </div>
-                            <button type="submit" class="btn btn-primary" name="send">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="send">Inscription</button>
                         </form>
                     </div>
                 </div>

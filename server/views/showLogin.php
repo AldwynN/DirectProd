@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <small><a href="../controllers/signIn.php">Pas encore de compte ?</a></small>
                             </div>
-                            <button type="submit" class="btn btn-primary" name="send">Submit</button>
+                            <button type="submit" class="btn btn-primary" name="send">Connexion</button>
                         </form>
                     </div>
                 </div>
