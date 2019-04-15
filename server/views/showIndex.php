@@ -46,15 +46,15 @@
         foreach ($ads as $ad) :
             $user = UserManager::GetUserDetailsById($ad->idUser);
             ?>
-            <div class="row media border rounded col-md-12 col-sm-12 ml-0">
+            <div class="row media border rounded col-md-12 col-sm-12 ml-0 testMarginVertical">
                 <!-- Image profil -->
                 <div class="media-body">
                     <div class="row">
-                        <div class="col-md-1 col-sm-1">
-                            <img src="https://www.w3schools.com/bootstrap/img_avatar1.png" class="media-object img-fluid" style="height:80px; width:70px">
+                        <div class="col-md-1 col-sm-2 col-3">
+                            <img src="https://www.w3schools.com/bootstrap/img_avatar1.png" class="media-object img-fluid" style="height: 8rem; width: 10rem">
                             <h6 class="NameUser"><a href="../controllers/profil.php?idUser=<?= $user[0]->idUser ?>"><?= $user[0]->name ?></a></h6>
                         </div>
-                        <div class="col-md-11 col-sm-11">
+                        <div class="col-md-11 col-sm-10 col-9">
                             <h4 class="title text-justify"><?= $ad->title ?></h4>
                             <div>
                                 <p class="corps text-justify"><?= $ad->description ?></p>
@@ -62,11 +62,10 @@
                         </div>
                     </div>
                     <!-- Contenu -->
-                    <div class="row">
+                    <!--<div class="row">
                         <img src="https://c.pxhere.com/photos/88/3a/goat_animal_mammals_farm_animal_world_wildlife_photography_black_and_white_tooth-717480.jpg!d" class="media-object img-fluid" style="height:35%; width:35%">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-9"></div>
+                    </div>-->
+                    <div class="row justify-content-end">
                         <div class="col-md-3">
                             <div class="d-flex flex-row-reverse">
                                 <a href="../controllers/adDetails.php?idAd=<?= $ad->idAdvertisement ?>"><button type="button" class="btn btn-outline-info testMarginHorizontal">Détails</button></a>
@@ -79,10 +78,10 @@
                     </div>
                 </div>
             </div>
-        <?php endforeach; ?>
-    </div>
+            <?php endforeach; ?>
+        </div>
 </body>
-<script>
+<!--<script>
     $(document).ready(function() {
         $('#inputState').change(function() {
             var selectedValue = $(this).val();
@@ -96,6 +95,6 @@
             }); //End ajax
         });
     });
-</script>
+</script>-->
 
 </html>

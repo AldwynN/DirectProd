@@ -12,10 +12,10 @@ require_once '../inc/inc.all.php';
 class AdvertisementManager
 {
 
-    public static function GetAdvertisements($triage = null)
+    public static function GetAdvertisementsValidated($triage = null)
     {
-        $sqlRequest = "SELECT * FROM advertisements";
-        switch ($triage) {
+        $sqlRequest = "SELECT * FROM advertisements WHERE valid = 1 ORDER BY date DESC";
+        /*switch ($triage) {
             case DESC:
                 $sqlRequest .= " ORDER BY date DESC";
                 break;
@@ -28,7 +28,7 @@ class AdvertisementManager
             default:
                 $sqlRequest .= " ORDER BY date DESC";
                 break;
-        }
+        }*/
         try {
             $req = Database::prepare($sqlRequest);
             $req->execute();

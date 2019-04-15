@@ -5,13 +5,14 @@ use PHPMailer\PHPMailer\Exception;
 
 $idUser = filter_input(INPUT_GET, 'idUser', FILTER_VALIDATE_INT);
 $valid = filter_input(INPUT_GET, 'valid', FILTER_VALIDATE_INT);
+$idAd = filter_input(INPUT_GET, 'idAd', FILTER_VALIDATE_INT);
 
 require_once '../inc/inc.all.php';
 require '../../PHPMailer/src/PHPMailer.php';
 
 $user = UserManager::GetUserDetailsById($idUser);
 
-$mail = new PHPMailer;
+/*$mail = new PHPMailer;
 $mail->setFrom('alduinsorn@gmail.com', 'Admin de DirectProd');
 $mail->addAddress($user->email, $user->name);
 if ($valid == 1) {
@@ -27,6 +28,15 @@ if (!$mail->send()) {
     //echo 'Mailer error: ' . $mail->ErrorInfo;
 } else {
     echo '<div class="alert alert-info" role="alert">Message de confirmation : "L\'email a bien été envoyé"</div>';
-}
+}*/
 
+if ($valid == 1) {
+    if (AdvertisementManager::UpdateValidatedAdvertisement($idAd)) {
+        echo '<div class="alert alert-info" role="alert">Message de confirmation : "Annonce validée"</div>';
+    } else {
+        echo '<div class="alert alert-danger" role="alert">Message de d\'erreur : "Erreur lors de la validation"</div>';
+    }
+}
 echo '<meta http-equiv="refresh" content="3;URL=admin.php">';
+
+include_once '../views/showEmailValidation.php';

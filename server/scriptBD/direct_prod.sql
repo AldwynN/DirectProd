@@ -33,7 +33,7 @@ CREATE TABLE `advertisements` (
   PRIMARY KEY (`idAdvertisement`),
   KEY `idUser` (`idUser`),
   CONSTRAINT `advertisements_ibfk_1` FOREIGN KEY (`idUser`) REFERENCES `users` (`idUser`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `advertisements` (
 
 LOCK TABLES `advertisements` WRITE;
 /*!40000 ALTER TABLE `advertisements` DISABLE KEYS */;
-INSERT INTO `advertisements` VALUES (1,'Je vend mon canard','Godefroid mon canard a 3 ans, couleur blanc tirant sur le gris, bec jaune avec trou.',1,1,'2019-04-11 11:04:38',1);
+INSERT INTO `advertisements` VALUES (1,'Je vend mon canard','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce feugiat eu lorem a viverra. Vivamus ornare scelerisque feugiat. Vestibulum a maximus lacus. Sed ac mattis augue, sed pretium tortor. Morbi hendrerit odio non dignissim vulputate. In hac habitasse platea dictumst. Pellentesque posuere eros quis ipsum vestibulum maximus.',1,1,'2019-04-15 13:36:35',1),(3,'Test pour affichage','Danser dans le vide',0,1,'2019-04-15 13:52:17',1),(4,'Deuxième test','Avec des hirondelles',1,1,'2019-04-15 13:58:02',1),(5,'Test pour admin','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu viverra dolor, volutpat rhoncus nunc. Cras at turpis purus. Morbi sit amet nisi erat. Aliquam placerat dapibus mi id tempus. Sed a ante elit. Proin augue dui, lacinia quis libero sed, euismod fringilla eros. Sed id pulvinar quam. Fusce tempor ultricies risus quis vehicula. Proin vestibulum at ligula sed viverra. Pellentesque laoreet, mauris non fringilla consequat, lectus magna fringilla dui, eget maximus sem nulla in lectus. Maecenas maximus dolor sed dolor semper, quis fermentum lorem imperdiet. Pellentesque commodo felis et ex pharetra, vel ullamcorper purus commodo. Proin lacinia, felis non rutrum ultricies, nulla enim eleifend ligula, vitae lobortis tortor ex in lacus. Nunc sit amet gravida mi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent elit lectus, commodo eu consectetur quis, fringilla eget dolor.',1,0,'2019-04-15 12:20:17',5);
 /*!40000 ALTER TABLE `advertisements` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +121,7 @@ CREATE TABLE `users` (
   `description` text NOT NULL,
   `salt` varchar(50) NOT NULL,
   PRIMARY KEY (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,7 +130,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'21995fd0a97ac7a99a687beb9367e80f74e34700','romain.prtt@eduge.ch','Rorobocop','Confignon','Genève','1232','14, Rue Joseph-Berthet',1,'J\'aime faire du scratch parce que grâce à ce programme je me prends pour un vrai informaticien.','11793474565ca36585edea68.65121056');
+INSERT INTO `users` VALUES (1,'21995fd0a97ac7a99a687beb9367e80f74e34700','romain.prtt@eduge.ch','Rorobocop','Confignon','Genève','1232','14, Rue Joseph-Berthet',1,'J\'aime faire du scratch parce que grâce à ce programme je me prends pour un vrai informaticien.','11793474565ca36585edea68.65121056'),(5,'9d607b9248f5b501e3dd60d5efbe2a3ef9a71ddf','JDM@gmail.com','Ludovic','Genève','Genève','1215','21 Rue des moines',0,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor mattis dictum. Vestibulum nisl dolor, fermentum vel nisi eu, lacinia viverra nunc. Phasellus fermentum vitae erat in mollis. Fusce condimentum tortor at mauris dignissim blandit. Sed interdum feugiat vehicula. Donec eget sodales mauris. Nunc sit amet tortor vel diam scelerisque.','13329606815cb46ffd2933c1.01668688');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -143,4 +143,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-11 13:07:02
+-- Dump completed on 2019-04-15 16:23:31

@@ -28,7 +28,7 @@ class UserManager {
                 . "VALUES (:password, :email, :name, :city, :canton, :postCode, :streetAndNumber, :admin, :description, :salt);";
         $salt = uniqid(mt_rand(), true);
         $encryptPassword = sha1($password . $salt);
-        $admin = false;
+        $admin = 0;
 
         try {
             $req = Database::prepare($sqlInsertUser);
