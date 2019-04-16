@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../../css/bootstrap-4.2.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- Personnal CSS -->
-    <link href="../../css/test.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/personnal.css" rel="stylesheet" type="text/css" />
     <title>Annonces</title>
 </head>
 
@@ -36,7 +36,9 @@
                     <?php if (isset($_SESSION["connected"])) : ?>
                         <a href="../controllers/createAd.php"><input type="button" class="btn btn-outline-success form-control" id="addAd" value="+"></a>
                     <?php else : ?>
-                        <input type="button" class="btn btn-outline-success form-control disabled" id="addAd" value="+">
+                        <a href="#" data-toggle="tooltip" title="Vous devez être connecté pour pouvoir poster une annonce">
+                            <button class='btn btn-danger form-control disabled'>+</button>
+                        </a>
                     <?php endif; ?>
                 </div>
             </div>
@@ -63,8 +65,8 @@
                     </div>
                     <!-- Contenu -->
                     <!--<div class="row">
-                        <img src="https://c.pxhere.com/photos/88/3a/goat_animal_mammals_farm_animal_world_wildlife_photography_black_and_white_tooth-717480.jpg!d" class="media-object img-fluid" style="height:35%; width:35%">
-                    </div>-->
+                                <img src="https://c.pxhere.com/photos/88/3a/goat_animal_mammals_farm_animal_world_wildlife_photography_black_and_white_tooth-717480.jpg!d" class="media-object img-fluid" style="height:35%; width:35%">
+                            </div>-->
                     <div class="row justify-content-end">
                         <div class="col-md-3">
                             <div class="d-flex flex-row-reverse">
@@ -78,9 +80,16 @@
                     </div>
                 </div>
             </div>
-            <?php endforeach; ?>
-        </div>
+        <?php endforeach; ?>
+    </div>
 </body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('[data-toggle="tooltip"]').tooltip({
+            placement: 'top'
+        });
+    });
+</script>
 <!--<script>
     $(document).ready(function() {
         $('#inputState').change(function() {

@@ -13,6 +13,8 @@ require_once 'constante.php';
 
 require_once '../class/Advertisement.php';
 require_once '../class/User.php';
+require_once '../class/Rating.php';
 
 require_once '../manager/advertisementManager.php';
 require_once '../manager/userManager.php';
+require_once '../manager/ratingManager.php';

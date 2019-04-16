@@ -9,68 +9,85 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../../css/bootstrap-4.2.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- Personnal CSS -->
-    <link href="../../css/test.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/personnal.css" rel="stylesheet" type="text/css" />
     <title>Détails de l'annonce</title>
 </head>
 
 <body>
-    <?php include_once 'showNavigation.php'; ?>
-    <div class='container'>
-        <div class="d-flex justify-content-center testMarginVertical">
-            <div class="card" style="width: 75%;">
-                <div class='container-fluid'>
-                    <div class='row d-flex flex-row-reverse'>
-                        <a href='../controllers/editAd.php?idAd=<?= $adDetails[0]->idAdvertisement ?>' class='btn btn-info'>M</a>
-                        <a href='../controllers/deleteAd.php?idAd=<?= $adDetails[0]->idAdvertisement ?>' class='btn btn-danger'>S</a>
+    <div class='container col-md-12 col-sm-12'>
+        <div class="row">
+            <div class="col-md-12 pl-0 pr-0 col-sm-12">
+                <?php include 'showNavigation.php'; ?>
+            </div>
+        </div>
+        <div class="row justify-content-center" style='color: white;'>
+            <div class='col-md-8 border'>
+                <div class='row justify-content-end'>
+                    <a href='../controllers/editAd.php?idAd=<?= $adDetails[0]->idAdvertisement ?>' class='btn btn-info'>M</a>
+                    <a href='../controllers/deleteAd.php?idAd=<?= $adDetails[0]->idAdvertisement ?>' class='btn btn-danger'>S</a>
+                </div>
+                <div class='row'>
+                    <div class='col-md-5 col-sm-6'>
+                        <img src="http://calgarypma.ca/wp-content/uploads/2018/01/default-thumbnail.jpg" style="width: 15rem; height: 15rem;" class="img-fluid" alt="">
                     </div>
-                    <div class='row'>
-                        <div class='col-md-4'>
-                            <img src="http://www.laboiteafromages37.com/photo/pagecontent/5/goat-image_0.jpg" style="width: 70%; height: 100%; object-fit: cover;" class="card-img-top" alt="">
-                        </div>
-                        <div class='col-md-6'>
-                            <h5><?= $adDetails[0]->title ?></h5>
-                            <h6><?= $userAd[0]->name ?>, le <?= $adDetails[0]->date ?></h6>
-                            <h6><?= $userAd[0]->postCode ?>, <?= $userAd[0]->streetAndNumber ?></h6>
-                        </div>
+                    <div class='col-md-7 col-sm-6'>
+                        <h4><?= $adDetails[0]->title ?></h4>
+                        <h6><?= $userAd[0]->name ?>, le <?= $adDetails[0]->date ?></h6>
+                        <h6>Code postal : <?= $userAd[0]->postCode ?>, N° et rue : <?= $userAd[0]->streetAndNumber ?></h6>
                     </div>
                 </div>
-                <div class='col-md-12'>
-                    <p><?= $adDetails[0]->description ?></p>
+                <div class='row'>
+                    <p class='text-justify'><?= $adDetails[0]->description ?></p>
                 </div>
             </div>
+        </div>
+        <div class='row justify-content-center'>
 
+            <?php
+            $cpt = 0;
+            foreach ($adRating as $rate) :
+                $detailUserRating = UserManager::GetUserDetailsById($rate->idUser);
+                $cpt++;
+
+                if ($cpt % 2 == 1) : ?>
+                    <div class='row col-md-12 justify-content-center'>
+                    <?php endif; ?>
+                    <div class='col-md-4 border' style='color:white;'>
+                        <h6><?= $detailUserRating[0]->name ?></h6>
+                        <p><?= $rate->comment ?></p>
+                        <p>Le <?= $rate->date ?></p>
+                    </div>
+
+                    <?php if ($cpt % 2 == 0) : ?>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
         </div>
         <div class="d-flex justify-content-center testMarginVertical">
             <div class='card'>
-                <div class='container-fluid'>
-                    <div class='row'>
+                <form method="post" action='#'>
+                    <div class='row justify-content-center'>
                         <div class='col-md-4'>
-                            <form method="post">
-                                <label class="radio-inline"><input type="radio" name="optradio">1</label>
-                                <label class="radio-inline"><input type="radio" name="optradio">2</label>
-                                <label class="radio-inline"><input type="radio" name="optradio">3</label>
-                                <label class="radio-inline"><input type="radio" name="optradio">4</label>
-                                <label class="radio-inline"><input type="radio" name="optradio">5</label>
-                                <input type="submit" value="Noter l'annonce">
-                            </form>
+                            <ul class='list-group list-group-flush'>
+                                <li class='list-group-item'><input type="radio" name="optradio" checked='checked' value='1'>1</li>
+                                <li class='list-group-item'><input type="radio" name="optradio" value='2'>2</li>
+                                <li class='list-group-item'><input type="radio" name="optradio" value='3'>3</li>
+                                <li class='list-group-item'><input type="radio" name="optradio" value='4'>4</li>
+                                <li class='list-group-item'><input type="radio" name="optradio" value='5'>5</li>
+                            </ul>
                         </div>
                         <div class='col-md-8'>
-                            <form method="post">
-                                <table>
-                                    <thead>Vous pouvez poster un commentaire</thead>
-                                    <tr>
-                                        <td><textarea cols='40' rows='5' name='comment' required></textarea></td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type='submit' value='Poster le commentaire'></td>
-                                    </tr>
-                                </table>
-                            </form>
+                            <h6>Vous pouvez poster un commentaire</h6>
+                            <textarea cols='40' rows='7' name='comment' required style='resize:none'></textarea>
+                        </div>
+                        <div class='col-md-12 '>
+                            <input type='submit' name='send' value='Poster le commentaire et le classement' class='btn btn-primary'>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

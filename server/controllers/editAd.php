@@ -12,9 +12,10 @@ if (isset($_POST['send'])) {
     $organic = filter_input(INPUT_POST, 'organic', FILTER_SANITIZE_STRING);
     $date = date('Y-m-d H:i:s');
     if (AdvertisementManager::UpdateAdvertisement($idAd, $title, $description, $organic, $date)) {
-        header('Location: index.php');
+        echo '<div class="alert alert-success" role="alert">Message de confirmation : "Annonce bien modifié, en attente de redirection"</div>';
+        echo '<meta http-equiv="refresh" content="3;URL=index.php">';
     }else{
-        echo '<h1>Error message : "Fail to update your advertisement"</h1>';
+        echo '<div class="alert alert-danger" role="alert">Message d\'erreur : "Erreur lors de la modification de l\'annonce"</div>';
     }
 }
 

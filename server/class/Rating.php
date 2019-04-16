@@ -1,0 +1,27 @@
+<?php
+
+/* Titre : Classe "Rating"
+ * Date : Mardi, 16.04.2019
+ * Auteurs : Romain Peretti
+ * Version : 1.0
+ * Description : Création de la classe "Rating" et initialisation des principaux champs de cette classe
+ */
+
+class Rating
+{
+
+    /** @var int Le ratio de l'annonce sur 5 */
+    public $rating;
+
+    /** @var string Le commentaire de l'utilisateur */
+    public $comment;
+
+    /** @var int La date de création du commentaire */
+    public $date;
+
+    /** @var int L'id de l'utilisateur */
+    public $idUser;
+
+    /** @var int L'id de l'annonce */
+    public $idAdvertisement;
+}
