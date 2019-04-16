@@ -83,6 +83,7 @@ DROP TABLE IF EXISTS `rate`;
 CREATE TABLE `rate` (
   `rating` int(11) NOT NULL,
   `comment` text NOT NULL,
+  `date` timestamp NOT NULL,
   `idUser` int(11) NOT NULL,
   `idAdvertisement` int(11) NOT NULL,
   KEY `idUser` (`idUser`,`idAdvertisement`),
@@ -98,6 +99,7 @@ CREATE TABLE `rate` (
 
 LOCK TABLES `rate` WRITE;
 /*!40000 ALTER TABLE `rate` DISABLE KEYS */;
+INSERT INTO `rate` VALUES (4,'Magnifique produit','0000-00-00 00:00:00',5,4),(5,'J&#39;adore','0000-00-00 00:00:00',1,4),(5,'test 4','2019-04-16 12:09:00',1,4);
 /*!40000 ALTER TABLE `rate` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -143,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-04-15 16:23:31
+-- Dump completed on 2019-04-16 16:38:01
