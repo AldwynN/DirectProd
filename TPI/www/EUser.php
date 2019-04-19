@@ -21,9 +21,9 @@ class EUser {
 	  */
     public function __construct($InEmail = "", $InNickname = "", $InName = "")
     {
-		$this->Email = $InEmail;
-		$this->Nickname = $InNickname;
-        $this->Name = $InName;
+			$this->Email = $InEmail;
+			$this->Nickname = $InNickname;
+      $this->Name = $InName;
 	}
 	/**
 	 * @var string L'email de l'utilisateur
@@ -38,7 +38,3 @@ class EUser {
 	 */
 	public $Name;
 }
-
-
-
-?>
