@@ -1,7 +1,7 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/server/database/database.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/server/class/Rating.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/database/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/class/Rating.php';
 
 class RatingManager
 {

@@ -2,7 +2,7 @@
 
 $idAd = filter_input(INPUT_GET, 'idAd', FILTER_VALIDATE_INT);
 
-require_once '../inc/inc.all.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/inc/inc.all.php';
 
 $ad = AdvertisementManager::GetAdvertisementById($idAd);
 
@@ -19,4 +19,4 @@ if (isset($_POST['send'])) {
     }
 }
 
-include_once '../views/showEditAd.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/views/showEditAd.php';

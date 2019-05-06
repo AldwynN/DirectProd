@@ -9,7 +9,7 @@ $errorState;
 
 $idUser = (!isset($_GET['idUser']) && isset($idUser) ? $idUser : filter_input(INPUT_GET, 'idUser', FILTER_VALIDATE_INT));
 
-require_once '../inc/inc.all.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/inc/inc.all.php';
 
 $user = UserManager::GetUserDetailsById($idUser);
 
@@ -64,4 +64,4 @@ if (isset($_POST['send'])) {
     }
 }
 
-include_once '../views/showEditProfil.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/views/showEditProfil.php';
