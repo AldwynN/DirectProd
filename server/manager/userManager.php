@@ -1,7 +1,7 @@
 <?php
-
-require_once $_SERVER['DOCUMENT_ROOT'] . '/server/database/database.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/server/class/User.php';
+//$_SERVER['DOCUMENT_ROOT']
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/database/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/class/User.php';
 
 class UserManager
 {

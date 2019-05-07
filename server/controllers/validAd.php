@@ -1,6 +1,6 @@
 <?php
 
-require_once '../inc/inc.all.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/inc/inc.all.php';
 
 // Nécessaire lorsqu'on retourne du json
 header('Content-Type: application/json');

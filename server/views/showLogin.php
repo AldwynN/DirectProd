@@ -22,7 +22,7 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form method="POST" action="../controllers/login.php">
+                <form method="POST" action='<?=$_SERVER['DOCUMENT_ROOT']?>/DirectProd/server/controllers/login.php'>
                     <div class="form-group">
                         <label for="email" class="corps">Adresse email</label>
                         <input type="email" class="form-control" name="email" id="email" placeholder="Entrez un email valide">
@@ -32,7 +32,7 @@
                         <input type="password" class="form-control" name="password" id="password">
                     </div>
                     <div class="form-group">
-                        <small><a href="../controllers/signIn.php">Pas encore de compte ?</a></small>
+                        <small><a href='<?=$_SERVER['DOCUMENT_ROOT']?>/DirectProd/server/controllers/signIn.php'>Pas encore de compte ?</a></small>
                     </div>
                     <button type="submit" class="btn btn-primary" name="send">Connexion</button>
                 </form>

@@ -2,7 +2,7 @@
 
 $idUser = filter_input(INPUT_GET, 'idUser', FILTER_VALIDATE_INT);
 
-require_once '../inc/inc.all.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/inc/inc.all.php';
 
 $user = UserManager::GetUserDetailsById($idUser);
 
@@ -19,4 +19,4 @@ if (isset($_POST['send'])) {
     echo '<meta http-equiv="refresh" content="3;URL=index.php">';
 }
 
-include '../views/showDeleteProfil.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/views/showDeleteProfil.php';

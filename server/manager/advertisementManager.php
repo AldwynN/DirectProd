@@ -1,7 +1,7 @@
 <?php
-
-require_once $_SERVER['DOCUMENT_ROOT'] . '/server/database/database.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/server/class/Advertisement.php';
+//$_SERVER['DOCUMENT_ROOT']
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/database/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/class/Advertisement.php';
 
 class AdvertisementManager
 {

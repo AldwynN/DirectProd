@@ -4,12 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap CSS & JS -->
-    <link href="../../css/bootstrap-4.2.1-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="../../css/bootstrap-4.2.1-dist/js/bootstrap.min.js" type="text/javascript"></script>
-    <!-- Personnal CSS -->
-    <link href="../../css/personnal.css" rel="stylesheet" type="text/css" />
+    <?php include_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/inc/headerLinks.php'; ?>
     <title>Édition du profil</title>
 </head>
 
@@ -19,7 +14,7 @@
         <div class="d-flex justify-content-center testMarginVertical">
             <div class="media testPadding" style="width: 80%;">
                 <div class="media-body">
-                    <form method="POST" action="<?= $path = '../controllers/editProfil.php?idUser=' . $_SESSION['idUser'] ?>">
+                    <form method="POST" action="<?= $path = $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/controllers/editProfil.php?idUser=' . $_SESSION['idUser'] ?>">
                         <div class="form-group">
                             <label for="newPassword" class="corps">Nouveau mot de passe</label>
                             <input type="password" class="form-control" name="newPassword" id="newPassword">

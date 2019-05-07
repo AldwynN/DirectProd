@@ -1,6 +1,6 @@
 <?php
 
-require_once '../inc/inc.all.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/inc/inc.all.php';
 
 if (isset($_POST['send'])) {
     $title = filter_input(INPUT_POST, 'title', FILTER_SANITIZE_STRING);
@@ -14,4 +14,4 @@ if (isset($_POST['send'])) {
     }
 }
 
-include_once '../views/showCreateAd.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/DirectProd/server/views/showCreateAd.php';
