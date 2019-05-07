@@ -2,7 +2,6 @@
 
 require_once "../inc/inc.all.php";
 
-
 if (isset($_POST['send'])) {
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
